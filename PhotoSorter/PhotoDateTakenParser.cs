@@ -11,7 +11,9 @@ namespace PhotoSorter
 {
     public static class PhotoDateTakenParser
     {
-        private const int DATE_TAKEN = 0x9003;
+        private const Int32 DATE_TAKEN = 0x9003;
+        private const String DATE_TAKEN_FORMAT = "yyyy:MM:dd HH:mm:ss";
+        private const String NULL_CHARACTER = "\0";
 
         public static DateTime GetDateTaken(Stream photoStream)
         {
@@ -19,7 +21,7 @@ namespace PhotoSorter
             using (Image image = Image.FromStream(photoStream))
             {
                 String dateTakenValue = GetDateTakenStringFromImage(image);
-                dateTaken = DateTime.ParseExact(dateTakenValue, "yyyy:MM:dd HH:mm:ss", CultureInfo.CurrentCulture.DateTimeFormat);
+                dateTaken = DateTime.ParseExact(dateTakenValue, DATE_TAKEN_FORMAT, CultureInfo.CurrentCulture.DateTimeFormat);
             }
 
             return dateTaken;
@@ -29,7 +31,7 @@ namespace PhotoSorter
         {
             PropertyItem dateTakenItem = image.GetPropertyItem(DATE_TAKEN);
             String dateTakenValue = Encoding.ASCII.GetString(dateTakenItem.Value);
-            return dateTakenValue.Replace("\0", string.Empty);
+            return dateTakenValue.Replace(NULL_CHARACTER, String.Empty);
         }
     }
 }
