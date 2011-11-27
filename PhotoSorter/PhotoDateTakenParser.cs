@@ -18,13 +18,15 @@ namespace PhotoSorter
         public static DateTime? GetDateTaken(Stream photoStream)
         {
             DateTime? dateTaken = null;
+            String dateTakenValue = null;
             using (Image image = Image.FromStream(photoStream))
             {
-                String dateTakenValue = GetDateTakenStringFromImage(image);
-                if (dateTakenValue != null)
-                {
-                    dateTaken = DateTime.ParseExact(dateTakenValue, DATE_TAKEN_FORMAT, CultureInfo.CurrentCulture.DateTimeFormat);
-                }
+                dateTakenValue = GetDateTakenStringFromImage(image);
+            }
+
+            if (dateTakenValue != null)
+            {
+                dateTaken = DateTime.ParseExact(dateTakenValue, DATE_TAKEN_FORMAT, CultureInfo.CurrentCulture.DateTimeFormat);
             }
 
             return dateTaken;
@@ -33,21 +35,30 @@ namespace PhotoSorter
         private static String GetDateTakenStringFromImage(Image image)
         {
             String value = null;
-            PropertyItem dateTakenItem = null;
+            PropertyItem dateTakenItem = GetDateTakenPropertyItem(image);
+            if (dateTakenItem != null)
+            {
+                value = ConvertToStringWithoutNullTerminator(dateTakenItem.Value);
+            }
 
+            return value;
+        }
+
+        private static String ConvertToStringWithoutNullTerminator(byte[] data)
+        {
+            String dateTakenValue = Encoding.ASCII.GetString(data);
+            return dateTakenValue.Replace(NULL_CHARACTER, String.Empty);
+        }
+
+        private static PropertyItem GetDateTakenPropertyItem(Image image)
+        {
+            PropertyItem dateTakenItem = null;
             try
             {
                 dateTakenItem = image.GetPropertyItem(DATE_TAKEN);
             }
             catch (ArgumentException) { }
-
-            if (dateTakenItem != null)
-            {
-                String dateTakenValue = Encoding.ASCII.GetString(dateTakenItem.Value);
-                value = dateTakenValue.Replace(NULL_CHARACTER, String.Empty);
-            }
-
-            return value;
+            return dateTakenItem;
         }
     }
 }
