@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PhotoDateTakenParserTest.cs" />
+    <Compile Include="PhotoSorterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -70,9 +71,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\file_not_photo" />
-    <None Include="Resources\photo_with_no_date_jpg" />
-    <None Include="Resources\photo_with_valid_date_jpg" />
+    <EmbeddedResource Include="Resources\file_not_photo.txt" />
+    <EmbeddedResource Include="Resources\photo_with_no_date.jpg" />
+    <EmbeddedResource Include="Resources\photo_with_valid_date.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

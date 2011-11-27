@@ -59,26 +59,5 @@ namespace PhotoSorter.Test.Properties {
                 resourceCulture = value;
             }
         }
-        
-        internal static byte[] file_not_photo {
-            get {
-                object obj = ResourceManager.GetObject("file_not_photo", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        internal static byte[] photo_with_no_date_jpg {
-            get {
-                object obj = ResourceManager.GetObject("photo_with_no_date_jpg", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        internal static byte[] photo_with_valid_date_jpg {
-            get {
-                object obj = ResourceManager.GetObject("photo_with_valid_date_jpg", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

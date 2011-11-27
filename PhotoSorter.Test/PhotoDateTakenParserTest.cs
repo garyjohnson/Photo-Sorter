@@ -17,7 +17,7 @@ namespace PhotoSorter.Test
         {
             DateTime expectedDate = DateTime.Parse("8/5/2011 3:04:42 PM");
             DateTime? actualDate = null;
-            using (MemoryStream stream = new MemoryStream(Resources.photo_with_valid_date_jpg))
+            using (Stream stream = GetResourceStream(@"PhotoSorter.Test.Resources.photo_with_valid_date.jpg"))
             {
                 actualDate = PhotoDateTakenParser.GetDateTaken(stream);
             }
@@ -30,7 +30,7 @@ namespace PhotoSorter.Test
         public void Test_WhenProvidedAPhotoWithNoDate_ThenReturnsNullDate()
         {
             DateTime? actualDate = DateTime.Now;
-            using (MemoryStream stream = new MemoryStream(Resources.photo_with_no_date_jpg))
+            using (Stream stream = GetResourceStream(@"PhotoSorter.Test.Resources.photo_with_no_date.jpg"))
             {
                 actualDate = PhotoDateTakenParser.GetDateTaken(stream);
             }
@@ -43,7 +43,7 @@ namespace PhotoSorter.Test
         {
             Boolean didThrowException = false;
             DateTime? actualDate = null;
-            using (MemoryStream stream = new MemoryStream(Resources.file_not_photo))
+            using (Stream stream = GetResourceStream(@"PhotoSorter.Test.Resources.file_not_photo.txt"))
             {
                 try
                 {
@@ -56,6 +56,11 @@ namespace PhotoSorter.Test
             }
 
             Assert.IsTrue(didThrowException, "Expected an ArgumentException to be thrown when provided an invalid photo.");
+        }
+
+        private Stream GetResourceStream(string resourcePath)
+        {
+            return Assembly.GetExecutingAssembly().GetManifestResourceStream(resourcePath);
         }
     }
 }
