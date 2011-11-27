@@ -70,6 +70,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\photo_with_no_date_jpg" />
     <None Include="Resources\photo_with_valid_date_jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
