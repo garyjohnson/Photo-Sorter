@@ -16,16 +16,20 @@ namespace PhotoSorter
         public static DateTime GetDateTaken(Stream photoStream)
         {
             DateTime dateTaken = DateTime.MinValue;
-
             using (Image image = Image.FromStream(photoStream))
             {
-                PropertyItem dateTakenItem = image.GetPropertyItem(DATE_TAKEN);
-                String dateTakenValue = Encoding.ASCII.GetString(dateTakenItem.Value);
-                dateTakenValue = dateTakenValue.Replace("\0", string.Empty);
+                String dateTakenValue = GetDateTakenStringFromImage(image);
                 dateTaken = DateTime.ParseExact(dateTakenValue, "yyyy:MM:dd HH:mm:ss", CultureInfo.CurrentCulture.DateTimeFormat);
             }
 
             return dateTaken;
+        }
+
+        private static String GetDateTakenStringFromImage(Image image)
+        {
+            PropertyItem dateTakenItem = image.GetPropertyItem(DATE_TAKEN);
+            String dateTakenValue = Encoding.ASCII.GetString(dateTakenItem.Value);
+            return dateTakenValue.Replace("\0", string.Empty);
         }
     }
 }
