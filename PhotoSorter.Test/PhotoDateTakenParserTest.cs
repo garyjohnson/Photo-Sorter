@@ -37,5 +37,25 @@ namespace PhotoSorter.Test
 
             Assert.IsFalse(actualDate.HasValue, "Expected to not parse valid date from photo");
         }
+
+        [TestMethod]
+        public void Test_WhenProvidedAnInvalidFile_ThenThrowsException()
+        {
+            Boolean didThrowException = false;
+            DateTime? actualDate = null;
+            using (MemoryStream stream = new MemoryStream(Resources.file_not_photo))
+            {
+                try
+                {
+                    actualDate = PhotoDateTakenParser.GetDateTaken(stream);
+                }
+                catch (ArgumentException)
+                {
+                    didThrowException = true;
+                }
+            }
+
+            Assert.IsTrue(didThrowException, "Expected an ArgumentException to be thrown when provided an invalid photo.");
+        }
     }
 }
