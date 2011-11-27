@@ -9,6 +9,7 @@ namespace PhotoSorter.Console
     {
         static void Main(string[] args)
         {
+            System.Console.ReadLine();
         }
     }
 }
