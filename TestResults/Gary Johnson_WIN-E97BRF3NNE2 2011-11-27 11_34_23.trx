@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e2a00e67-548d-4ca0-80c7-f23198c6bb84" name="Gary Johnson@WIN-E97BRF3NNE2 2011-11-27 11:34:23" runUser="WIN-E97BRF3NNE2\Gary Johnson" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Trace and Test Impact" id="9e737a97-0391-4760-a144-c87b6ce018ac">
+    <Description>These are test settings for Trace and Test Impact.</Description>
+    <Deployment runDeploymentRoot="Gary Johnson_WIN-E97BRF3NNE2 2011-11-27 11_34_23">
+      <DeploymentItem filename="C:\Users\Gary Johnson\Development\Photo-Sorter\Libraries\Moq\Moq.dll" />
+      <DeploymentItem filename="C:\Users\Gary Johnson\Development\Photo-Sorter\PhotoSorter\bin\Debug\PhotoSorter.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+        <DataCollectors>
+          <DataCollector uri="datacollector://microsoft/SystemInfo/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.DataCollection.SystemInfo.SystemInfoDataCollector, Microsoft.VisualStudio.TestTools.DataCollection.SystemInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="System Information">
+          </DataCollector>
+          <DataCollector uri="datacollector://microsoft/HttpProxy/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TraceCollector.HttpProxyCollector, Microsoft.VisualStudio.TraceCollector, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="ASP.NET Client Proxy for IntelliTrace and Test Impact">
+          </DataCollector>
+          <DataCollector uri="datacollector://microsoft/TestImpact/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TraceCollector.TestImpactDataCollector, Microsoft.VisualStudio.TraceCollector, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="Test Impact">
+          </DataCollector>
+          <DataCollector uri="datacollector://microsoft/TraceDebugger/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TraceCollector.TraceDebuggerDataCollector, Microsoft.VisualStudio.TraceCollector, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="IntelliTrace">
+          </DataCollector>
+        </DataCollectors>
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-11-27T11:34:23.5448128-05:00" queuing="2011-11-27T11:34:23.7163941-05:00" start="2011-11-27T11:34:27.6973594-05:00" finish="2011-11-27T11:34:30.3958653-05:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <CollectorDataEntries>
+      <Collector agentName="WIN-E97BRF3NNE2" uri="datacollector://microsoft/SystemInfo/1.0" collectorDisplayName="System Information">
+        <UriAttachments>
+          <UriAttachment>
+            <A href="WIN-E97BRF3NNE2\SystemInformation.xml">System Information from WIN-E97BRF3NNE2</A>
+          </UriAttachment>
+        </UriAttachments>
+      </Collector>
+    </CollectorDataEntries>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Test_WhenProvidedAPhotoWithValidDate_ThenParsesCorrectDate" storage="c:\users\gary johnson\development\photo-sorter\photosorter.test\bin\debug\photosorter.test.dll" id="d45d09f4-b7f4-9ed1-abf5-f9622e6c0895">
+      <Execution id="2426475f-e35f-48f5-9a37-8d7db2785f63" />
+      <TestMethod codeBase="C:/Users/Gary Johnson/Development/Photo-Sorter/PhotoSorter.Test/bin/Debug/PhotoSorter.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PhotoSorter.Test.PhotoDateTakenParserTest, PhotoSorter.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Test_WhenProvidedAPhotoWithValidDate_ThenParsesCorrectDate" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="d45d09f4-b7f4-9ed1-abf5-f9622e6c0895" executionId="2426475f-e35f-48f5-9a37-8d7db2785f63" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="2426475f-e35f-48f5-9a37-8d7db2785f63" testId="d45d09f4-b7f4-9ed1-abf5-f9622e6c0895" testName="Test_WhenProvidedAPhotoWithValidDate_ThenParsesCorrectDate" computerName="WIN-E97BRF3NNE2" duration="00:00:00.1905677" startTime="2011-11-27T11:34:28.0405220-05:00" endTime="2011-11-27T11:34:29.3663775-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2426475f-e35f-48f5-9a37-8d7db2785f63">
+      <CollectorDataEntries>
+        <Collector agentName="WIN-E97BRF3NNE2" uri="datacollector://microsoft/SystemInfo/1.0" collectorDisplayName="System Information">
+          <UriAttachments>
+            <UriAttachment>
+              <A href="WIN-E97BRF3NNE2\SystemInformation.xml">System Information from WIN-E97BRF3NNE2</A>
+            </UriAttachment>
+          </UriAttachments>
+        </Collector>
+        <Collector agentName="WIN-E97BRF3NNE2" uri="datacollector://microsoft/TestImpact/1.0" collectorDisplayName="Test Impact">
+          <UriAttachments>
+            <UriAttachment>
+              <A href="WIN-E97BRF3NNE2\testimpact.xml">Test Impact Data</A>
+            </UriAttachment>
+          </UriAttachments>
+        </Collector>
+      </CollectorDataEntries>
+    </UnitTestResult>
+  </Results>
+</TestRun>
