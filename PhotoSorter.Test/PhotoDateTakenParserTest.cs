@@ -13,7 +13,7 @@ namespace PhotoSorter.Test
     public class PhotoDateTakenParserTest
     {
         [TestMethod]
-        public void Test_WhenProvidedAPhotoWithValidDate_ThenParsesCorrectDate()
+        public void Test_WhenProvidedAPhotoWithValidDate_ThenReturnsCorrectDate()
         {
             DateTime expectedDate = DateTime.Parse("8/5/2011 3:04:42 PM");
             DateTime? actualDate = null;
@@ -27,7 +27,7 @@ namespace PhotoSorter.Test
         }
 
         [TestMethod]
-        public void Test_WhenProvidedAPhotoWithNoDate_ThenRecievesNullDate()
+        public void Test_WhenProvidedAPhotoWithNoDate_ThenReturnsNullDate()
         {
             DateTime? actualDate = DateTime.Now;
             using (MemoryStream stream = new MemoryStream(Resources.photo_with_no_date_jpg))
