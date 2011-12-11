@@ -4,41 +4,6 @@
         <name>Microsoft.Practices.Unity</name>
     </assembly>
     <members>
-        <member name="T:Microsoft.Practices.Unity.Utility.TypeReflectionExtensions">
-            <summary>
-            Provices extensions mentions to Type due to the introduction of TypeInfo class for Windows 8 Metro-style applications.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.Utility.TypeReflectionExtensions.GetConstructor(System.Type,System.Type[])">
-            <summary>
-            
-            </summary>
-            <param name="type"></param>
-            <param name="constructorParameters"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.Utility.TypeReflectionExtensions.GetMethodsHierarchical(System.Type)">
-            <summary>
-            Returns the non-static declared methods of a type or its base types.
-            </summary>
-            <param name="type">The type to inspect</param>
-            <returns>An enumerable of the <see cref="T:System.Reflection.MethodInfo"/> objects.</returns>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.Utility.TypeReflectionExtensions.GetPropertiesHierarchical(System.Type)">
-            <summary>
-            Returns the declared properties of a type or its base types.
-            </summary>
-            <param name="type">The type to inspect</param>
-            <returns>An enumerable of the <see cref="T:System.Reflection.PropertyInfo"/> objects.</returns>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.Utility.TypeReflectionExtensions.ParametersMatch(System.Reflection.ParameterInfo[],System.Type[])">
-            <summary>
-            Deterines if the types in a parameter set ordinally matches the set of supplied types.
-            </summary>
-            <param name="parameters"></param>
-            <param name="closedConstructorParameterTypes"></param>
-            <returns></returns>
-        </member>
         <member name="T:Microsoft.Practices.Unity.DependencyResolutionAttribute">
             <summary>
             Base class for attributes that can be placed on parameters
@@ -384,140 +349,6 @@
             An extension context for the created child container.
             </summary>
         </member>
-        <member name="T:Microsoft.Practices.Unity.GenericParameterBase">
-            <summary>
-            Base class for <see cref="T:Microsoft.Practices.Unity.InjectionParameterValue"/> subclasses that let you specify that
-            an instance of a generic type parameter should be resolved.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Practices.Unity.InjectionParameterValue">
-            <summary>
-            Base type for objects that are used to configure parameters for
-            constructor or method injection, or for getting the value to
-            be injected into a property.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.InjectionParameterValue.MatchesType(System.Type)">
-            <summary>
-            Test to see if this parameter value has a matching type for the given type.
-            </summary>
-            <param name="t">Type to check.</param>
-            <returns>True if this parameter value is compatible with type <paramref name="t"/>,
-            false if not.</returns>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.InjectionParameterValue.GetResolverPolicy(System.Type)">
-            <summary>
-            Return a <see cref="T:Microsoft.Practices.ObjectBuilder2.IDependencyResolverPolicy"/> instance that will
-            return this types value for the parameter.
-            </summary>
-            <param name="typeToBuild">Type that contains the member that needs this parameter. Used
-            to resolve open generic parameters.</param>
-            <returns>The <see cref="T:Microsoft.Practices.ObjectBuilder2.IDependencyResolverPolicy"/>.</returns>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.InjectionParameterValue.ToParameters(System.Object[])">
-            <summary>
-            Convert the given set of arbitrary values to a sequence of InjectionParameterValue
-            objects. The rules are: If it's already an InjectionParameterValue, return it. If
-            it's a Type, return a ResolvedParameter object for that type. Otherwise return
-            an InjectionParameter object for that value.
-            </summary>
-            <param name="values">The values to build the sequence from.</param>
-            <returns>The resulting converted sequence.</returns>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.InjectionParameterValue.ToParameter(System.Object)">
-            <summary>
-            Convert an arbitrary value to an InjectionParameterValue object. The rules are: 
-            If it's already an InjectionParameterValue, return it. If it's a Type, return a
-            ResolvedParameter object for that type. Otherwise return an InjectionParameter
-            object for that value.
-            </summary>
-            <param name="value">The value to convert.</param>
-            <returns>The resulting <see cref="T:Microsoft.Practices.Unity.InjectionParameterValue"/>.</returns>
-        </member>
-        <member name="P:Microsoft.Practices.Unity.InjectionParameterValue.ParameterTypeName">
-            <summary>
-            Name for the type represented by this <see cref="T:Microsoft.Practices.Unity.InjectionParameterValue"/>.
-            This may be an actual type name or a generic argument name.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.GenericParameterBase.#ctor(System.String)">
-            <summary>
-            Create a new <see cref="T:Microsoft.Practices.Unity.GenericParameter"/> instance that specifies
-            that the given named generic parameter should be resolved.
-            </summary>
-            <param name="genericParameterName">The generic parameter name to resolve.</param>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.GenericParameterBase.#ctor(System.String,System.String)">
-            <summary>
-            Create a new <see cref="T:Microsoft.Practices.Unity.GenericParameter"/> instance that specifies
-            that the given named generic parameter should be resolved.
-            </summary>
-            <param name="genericParameterName">The generic parameter name to resolve.</param>
-            <param name="resolutionKey">name to use when looking up in the container.</param>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.GenericParameterBase.MatchesType(System.Type)">
-            <summary>
-            Test to see if this parameter value has a matching type for the given type.
-            </summary>
-            <param name="t">Type to check.</param>
-            <returns>True if this parameter value is compatible with type <paramref name="t"/>,
-            false if not.</returns>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.GenericParameterBase.GetResolverPolicy(System.Type)">
-            <summary>
-            Return a <see cref="T:Microsoft.Practices.ObjectBuilder2.IDependencyResolverPolicy"/> instance that will
-            return this types value for the parameter.
-            </summary>
-            <param name="typeToBuild">Type that contains the member that needs this parameter. Used
-            to resolve open generic parameters.</param>
-            <returns>The <see cref="T:Microsoft.Practices.ObjectBuilder2.IDependencyResolverPolicy"/>.</returns>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.GenericParameterBase.DoGetResolverPolicy(System.Type,System.String)">
-            <summary>
-            Return a <see cref="T:Microsoft.Practices.ObjectBuilder2.IDependencyResolverPolicy"/> instance that will
-            return this types value for the parameter.
-            </summary>
-            <param name="typeToResolve">The actual type to resolve.</param>
-            <param name="resolutionKey">The resolution key.</param>
-            <returns>The <see cref="T:Microsoft.Practices.ObjectBuilder2.IDependencyResolverPolicy"/>.</returns>
-        </member>
-        <member name="P:Microsoft.Practices.Unity.GenericParameterBase.ParameterTypeName">
-            <summary>
-            Name for the type represented by this <see cref="T:Microsoft.Practices.Unity.InjectionParameterValue"/>.
-            This may be an actual type name or a generic argument name.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Practices.Unity.OptionalGenericParameter">
-            <summary>
-            A <see cref="T:Microsoft.Practices.Unity.InjectionParameterValue"/> that lets you specify that
-            an instance of a generic type parameter should be resolved, providing the <see langword="null"/>
-            value if resolving fails.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.OptionalGenericParameter.#ctor(System.String)">
-            <summary>
-            Create a new <see cref="T:Microsoft.Practices.Unity.GenericParameter"/> instance that specifies
-            that the given named generic parameter should be resolved.
-            </summary>
-            <param name="genericParameterName">The generic parameter name to resolve.</param>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.OptionalGenericParameter.#ctor(System.String,System.String)">
-            <summary>
-            Create a new <see cref="T:Microsoft.Practices.Unity.GenericParameter"/> instance that specifies
-            that the given named generic parameter should be resolved.
-            </summary>
-            <param name="genericParameterName">The generic parameter name to resolve.</param>
-            <param name="resolutionKey">name to use when looking up in the container.</param>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.OptionalGenericParameter.DoGetResolverPolicy(System.Type,System.String)">
-            <summary>
-            Return a <see cref="T:Microsoft.Practices.ObjectBuilder2.IDependencyResolverPolicy"/> instance that will
-            return this types value for the parameter.
-            </summary>
-            <param name="typeToResolve">The actual type to resolve.</param>
-            <param name="resolutionKey">The resolution key.</param>
-            <returns>The <see cref="T:Microsoft.Practices.ObjectBuilder2.IDependencyResolverPolicy"/>.</returns>
-        </member>
         <member name="T:Microsoft.Practices.Unity.InjectionFactory">
             <summary>
             A class that lets you specify a factory method the container
@@ -587,6 +418,56 @@
             <summary>
             A base class for implementing <see cref="T:Microsoft.Practices.Unity.InjectionParameterValue"/> classes
             that deal in explicit types.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.Unity.InjectionParameterValue">
+            <summary>
+            Base type for objects that are used to configure parameters for
+            constructor or method injection, or for getting the value to
+            be injected into a property.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.Unity.InjectionParameterValue.MatchesType(System.Type)">
+            <summary>
+            Test to see if this parameter value has a matching type for the given type.
+            </summary>
+            <param name="t">Type to check.</param>
+            <returns>True if this parameter value is compatible with type <paramref name="t"/>,
+            false if not.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.Unity.InjectionParameterValue.GetResolverPolicy(System.Type)">
+            <summary>
+            Return a <see cref="T:Microsoft.Practices.ObjectBuilder2.IDependencyResolverPolicy"/> instance that will
+            return this types value for the parameter.
+            </summary>
+            <param name="typeToBuild">Type that contains the member that needs this parameter. Used
+            to resolve open generic parameters.</param>
+            <returns>The <see cref="T:Microsoft.Practices.ObjectBuilder2.IDependencyResolverPolicy"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.Unity.InjectionParameterValue.ToParameters(System.Object[])">
+            <summary>
+            Convert the given set of arbitrary values to a sequence of InjectionParameterValue
+            objects. The rules are: If it's already an InjectionParameterValue, return it. If
+            it's a Type, return a ResolvedParameter object for that type. Otherwise return
+            an InjectionParameter object for that value.
+            </summary>
+            <param name="values">The values to build the sequence from.</param>
+            <returns>The resulting converted sequence.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.Unity.InjectionParameterValue.ToParameter(System.Object)">
+            <summary>
+            Convert an arbitrary value to an InjectionParameterValue object. The rules are: 
+            If it's already an InjectionParameterValue, return it. If it's a Type, return a
+            ResolvedParameter object for that type. Otherwise return an InjectionParameter
+            object for that value.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The resulting <see cref="T:Microsoft.Practices.Unity.InjectionParameterValue"/>.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.Unity.InjectionParameterValue.ParameterTypeName">
+            <summary>
+            Name for the type represented by this <see cref="T:Microsoft.Practices.Unity.InjectionParameterValue"/>.
+            This may be an actual type name or a generic argument name.
             </summary>
         </member>
         <member name="M:Microsoft.Practices.Unity.TypedInjectionValue.#ctor(System.Type)">
@@ -763,7 +644,7 @@
             <remarks>
             Don't do anything that could throw in this method,
             it will cause later recover operations to get skipped
-            and play real havoc with the stack trace.
+            and play real havok with the stack trace.
             </remarks>
         </member>
         <member name="M:Microsoft.Practices.Unity.SynchronizedLifetimeManager.GetValue">
@@ -812,7 +693,7 @@
             <remarks>
             Don't do anything that could throw in this method,
             it will cause later recover operations to get skipped
-            and play real havoc with the stack trace.
+            and play real havok with the stack trace.
             </remarks>
         </member>
         <member name="M:Microsoft.Practices.Unity.ContainerControlledLifetimeManager.SynchronizedGetValue">
@@ -2381,40 +2262,6 @@
             <remarks>Existing object is an instance of <see cref="T:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext"/>.</remarks>
             <param name="context">The context for the operation.</param>
         </member>
-        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicMethodConstructorStrategy.SetPerBuildSingleton(Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
-            <summary>
-            A helper method used by the generated IL to set up a PerResolveLifetimeManager lifetime manager
-            if the current object is such.
-            </summary>
-            <param name="context">Current build context.</param>
-        </member>
-        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicMethodConstructorStrategy.CreateSignatureString(System.Reflection.ConstructorInfo)">
-            <summary>
-            Build up the string that will represent the constructor signature
-            in any exception message.
-            </summary>
-            <param name="constructor"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicMethodConstructorStrategy.SetCurrentOperationToResolvingParameter(System.String,System.String,Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
-            <summary>
-            A helper method used by the generated IL to store the current operation in the build context.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicMethodConstructorStrategy.SetCurrentOperationToInvokingConstructor(System.String,Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
-            <summary>
-            A helper method used by the generated IL to store the current operation in the build context.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicMethodConstructorStrategy.ThrowForAttemptingToConstructInterface(Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
-            <summary>
-            A helper method used by the generated IL to throw an exception if
-            no existing object is present, but the user is attempting to build
-            an interface (usually due to the lack of a type mapping).
-            </summary>
-            <param name="context">The <see cref="T:Microsoft.Practices.ObjectBuilder2.IBuilderContext"/> currently being
-            used for the build of this object.</param>
-        </member>
         <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicMethodConstructorStrategy.ThrowForNullExistingObject(Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
             <summary>
             A helper method used by the generated IL to throw an exception if
@@ -2431,6 +2278,32 @@
             <param name="context">The <see cref="T:Microsoft.Practices.ObjectBuilder2.IBuilderContext"/> currently being
             used for the build of this object.</param>
             <param name="signature">The signature of the invalid constructor.</param>
+        </member>
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicMethodConstructorStrategy.ThrowForAttemptingToConstructInterface(Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
+            <summary>
+            A helper method used by the generated IL to throw an exception if
+            no existing object is present, but the user is attempting to build
+            an interface (usually due to the lack of a type mapping).
+            </summary>
+            <param name="context">The <see cref="T:Microsoft.Practices.ObjectBuilder2.IBuilderContext"/> currently being
+            used for the build of this object.</param>
+        </member>
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicMethodConstructorStrategy.SetCurrentOperationToResolvingParameter(System.String,System.String,Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
+            <summary>
+            A helper method used by the generated IL to store the current operation in the build context.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicMethodConstructorStrategy.SetCurrentOperationToInvokingConstructor(System.String,Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
+            <summary>
+            A helper method used by the generated IL to store the current operation in the build context.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicMethodConstructorStrategy.SetPerBuildSingleton(Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
+            <summary>
+            A helper method used by the generated IL to set up a PerResolveLifetimeManager lifetime manager
+            if the current object is such.
+            </summary>
+            <param name="context">Current build context.</param>
         </member>
         <member name="T:Microsoft.Practices.ObjectBuilder2.InvokingConstructorOperation">
             <summary>
@@ -2491,29 +2364,78 @@
         </member>
         <member name="T:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext">
             <summary>
-            
+            This object tracks the current state of the build plan generation,
+            accumulates the IL, provides the preamble &amp; postamble for the dynamic
+            method, and tracks things like local variables in the generated IL
+            so that they can be reused across IL generation strategies.
             </summary>
         </member>
-        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.#ctor(System.Type)">
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.#ctor(System.Type,Microsoft.Practices.ObjectBuilder2.IDynamicBuilderMethodCreatorPolicy)">
             <summary>
-            
+            Create a <see cref="T:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext"/> that is initialized
+            to handle creation of a dynamic method to build the given type.
             </summary>
-            <param name="typeToBuild"></param>
+            <param name="typeToBuild">Type that we're trying to create a build plan for.</param>
+            <param name="builderMethodCreator">An <see cref="T:Microsoft.Practices.ObjectBuilder2.IDynamicBuilderMethodCreatorPolicy"/> object that actually
+            creates our <see cref="T:System.Reflection.Emit.DynamicMethod"/> object.</param>
         </member>
-        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.AddToBuildPlan(System.Linq.Expressions.Expression)">
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.GetBuildMethod">
             <summary>
-            
+            Completes generation of the dynamic method and returns the
+            generated dynamic method delegate.
             </summary>
-            <param name="expression"></param>
+            <returns>The created <see cref="T:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanMethod"/></returns>
         </member>
-        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.CreateParameterExpression(System.String,System.Type,System.Linq.Expressions.Expression)">
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.EmitLoadContext">
             <summary>
-            
+            Emit the IL to put the build context on top of the IL stack.
             </summary>
-            <param name="parameterKey"></param>
-            <param name="parameterType"></param>
-            <param name="setOperationExpression"></param>
-            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.EmitLoadBuildKey">
+            <summary>
+            Emit the IL to put the current build key on top of the IL stack.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.EmitLoadExisting">
+            <summary>
+            Emit the IL to put the current "existing" object on the top of the IL stack.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.EmitStoreExisting">
+            <summary>
+            Emit the IL to make the top of the IL stack our current "existing" object.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.EmitLoadTypeOnStack(System.Type)">
+            <summary>
+            Emit the IL to load the given <see cref="T:System.Type"/> object onto the top of the IL stack.
+            </summary>
+            <param name="t">Type to load on the stack.</param>
+        </member>
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.EmitResolveDependency(System.Type,System.String)">
+            <summary>
+            Emit the IL needed to look up an <see cref="T:Microsoft.Practices.ObjectBuilder2.IDependencyResolverPolicy"/> and
+            call it to get a value.
+            </summary>
+            <param name="dependencyType">Type of the dependency to resolve.</param>
+            <param name="key">Key to look up the policy by.</param>
+        </member>
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.EmitClearCurrentOperation">
+            <summary>
+            Emit the IL needed to clear the <see cref="P:Microsoft.Practices.ObjectBuilder2.IBuilderContext.CurrentOperation"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.EmitCastOrUnbox(System.Type)">
+            <summary>
+            Emit the IL needed to either cast the top of the stack to the target type
+            or unbox it, if it's a value type.
+            </summary>
+            <param name="targetType">Type to convert the top of the stack to.</param>
+        </member>
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.DoClearCurrentOperation(Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
+            <summary>
+            A helper method used by the generated IL to clear the current operation in the build context.
+            </summary>
         </member>
         <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.GetResolver(Microsoft.Practices.ObjectBuilder2.IBuilderContext,System.Type,System.String)">
             <summary>
@@ -2524,38 +2446,49 @@
             <param name="resolverKey">Key the resolver was stored under.</param>
             <returns>The found dependency resolver.</returns>
         </member>
-        <member name="P:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.TypeToBuild">
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.GetPropertyGetter``2(System.String)">
             <summary>
-            The type that is to be built with the dynamic build plan.
+            A reflection helper method to make it easier to grab a property getter
+            <see cref="T:System.Reflection.MethodInfo"/> for the given property.
+            </summary>
+            <typeparam name="TImplementer">Type that implements the property we want.</typeparam>
+            <typeparam name="TProperty">Type of the property.</typeparam>
+            <param name="name">Name of the property.</param>
+            <returns>The property getter's <see cref="T:System.Reflection.MethodInfo"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.GetMethodInfo``1(System.String,System.Type[])">
+            <summary>
+            A reflection helper method that makes it easier to grab a <see cref="T:System.Reflection.MethodInfo"/>
+            for a method.
+            </summary>
+            <typeparam name="TImplementer">Type that implements the method we want.</typeparam>
+            <param name="name">Name of the method.</param>
+            <param name="argumentTypes">Types of arguments to the method.</param>
+            <returns>The method's <see cref="T:System.Reflection.MethodInfo"/>.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.IL">
+            <summary>
+            The underlying <see cref="T:System.Reflection.Emit.ILGenerator"/> that can be used to
+            emit IL into the generated dynamic method.
             </summary>
         </member>
-        <member name="P:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.ContextParameter">
+        <member name="P:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanGenerationContext.TypeToBuild">
             <summary>
-            The context parameter represeting the <see cref="T:Microsoft.Practices.ObjectBuilder2.IBuilderContext"/> used when the build plan is executed.
+            The type we're currently creating the method to build.
             </summary>
         </member>
         <member name="T:Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanMethod">
             <summary>
-            
+            A delegate type that defines the signature of the
+            dynamic method created by the build plans.
             </summary>
-            <param name="context"></param>
+            <param name="context"><see cref="T:Microsoft.Practices.ObjectBuilder2.IBuilderContext"/> used to build up the object.</param>
         </member>
         <member name="T:Microsoft.Practices.ObjectBuilder2.DynamicMethodBuildPlan">
             <summary>
-            
+            An implementation of <see cref="T:Microsoft.Practices.ObjectBuilder2.IBuildPlanPolicy"/> that runs the
+            given delegate to execute the plan.
             </summary>
-        </member>
-        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicMethodBuildPlan.#ctor(Microsoft.Practices.ObjectBuilder2.DynamicBuildPlanMethod)">
-            <summary>
-            
-            </summary>
-            <param name="buildMethod"></param>
-        </member>
-        <member name="M:Microsoft.Practices.ObjectBuilder2.DynamicMethodBuildPlan.BuildUp(Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
-            <summary>
-            
-            </summary>
-            <param name="context"></param>
         </member>
         <member name="T:Microsoft.Practices.ObjectBuilder2.DynamicMethodBuildPlanCreatorPolicy">
             <summary>
@@ -3963,7 +3896,7 @@
             Creates a new extension object and adds it to the container.
             </summary>
             <typeparam name="TExtension">Type of <see cref="T:Microsoft.Practices.Unity.UnityContainerExtension"/> to add. The extension type
-            will be resolved from within the supplied <paramref name="container"/>.</typeparam>
+            must have a zero-argument public constructor.</typeparam>
             <param name="container">Container to add the extension to.</param>
             <returns>The <see cref="T:Microsoft.Practices.Unity.UnityContainer"/> object that this method was called on (this in C#, Me in Visual Basic).</returns>
         </member>
@@ -4215,14 +4148,28 @@
             <param name="genericParameterName">The generic parameter name to resolve.</param>
             <param name="resolutionKey">name to use when looking up in the container.</param>
         </member>
-        <member name="M:Microsoft.Practices.Unity.GenericParameter.DoGetResolverPolicy(System.Type,System.String)">
+        <member name="M:Microsoft.Practices.Unity.GenericParameter.MatchesType(System.Type)">
+            <summary>
+            Test to see if this parameter value has a matching type for the given type.
+            </summary>
+            <param name="t">Type to check.</param>
+            <returns>True if this parameter value is compatible with type <paramref name="t"/>,
+            false if not.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.Unity.GenericParameter.GetResolverPolicy(System.Type)">
             <summary>
             Return a <see cref="T:Microsoft.Practices.ObjectBuilder2.IDependencyResolverPolicy"/> instance that will
             return this types value for the parameter.
             </summary>
-            <param name="typeToResolve">The actual type to resolve.</param>
-            <param name="resolutionKey">The resolution key.</param>
+            <param name="typeToBuild">Type that contains the member that needs this parameter. Used
+            to resolve open generic parameters.</param>
             <returns>The <see cref="T:Microsoft.Practices.ObjectBuilder2.IDependencyResolverPolicy"/>.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.Unity.GenericParameter.ParameterTypeName">
+            <summary>
+            Name for the type represented by this <see cref="T:Microsoft.Practices.Unity.InjectionParameterValue"/>.
+            This may be an actual type name or a generic argument name.
+            </summary>
         </member>
         <member name="T:Microsoft.Practices.Unity.GenericResolvedArrayParameter">
             <summary>
@@ -5793,8 +5740,8 @@
         <member name="M:Microsoft.Practices.Unity.Utility.ReflectionHelper.GetNamedGenericParameter(System.String)">
             <summary>
             Given a generic argument name, return the corresponding type for this
-            closed type. For example, if the current type is SomeType&lt;User&gt;, and the
-            corresponding definition was SomeType&lt;TSomething&gt;, calling this method
+            closed type. For example, if the current type is Foo&lt;User&gt;, and the
+            corresponding definition was Foo&lt;TSomething&gt;, calling this method
             and passing "TSomething" will return typeof(User).
             </summary>
             <param name="parameterName">Name of the generic parameter.</param>
@@ -5831,11 +5778,6 @@
             The type of the elements in this type (if it's an array).
             </summary>
         </member>
-        <member name="P:Microsoft.Practices.Unity.Utility.ReflectionHelper.InstanceConstructors">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="M:Microsoft.Practices.Unity.Utility.ParameterReflectionHelper.#ctor(System.Reflection.ParameterInfo)">
             <summary>
             Create a new instance of <see cref="T:Microsoft.Practices.Unity.Utility.ParameterReflectionHelper"/> that
@@ -5852,7 +5794,7 @@
         <member name="M:Microsoft.Practices.Unity.Utility.StaticReflection.GetMethodInfo(System.Linq.Expressions.Expression{System.Action})">
             <summary>
             Pull out a <see cref="T:System.Reflection.MethodInfo"/> object from an expression of the form
-            () =&gt; SomeClass.SomeMethod()
+            () =&gt; SomeClass.Foo()
             </summary>
             <param name="expression">Expression describing the method to call.</param>
             <returns>Corresponding <see cref="T:System.Reflection.MethodInfo"/>.</returns>
@@ -5860,7 +5802,7 @@
         <member name="M:Microsoft.Practices.Unity.Utility.StaticReflection.GetMethodInfo``1(System.Linq.Expressions.Expression{System.Action{``0}})">
             <summary>
             Pull out a <see cref="T:System.Reflection.MethodInfo"/> object from an expression of the form
-            x =&gt; x.SomeMethod()
+            x =&gt; x.Foo()
             </summary>
             <typeparam name="T">The type where the method is defined.</typeparam>
             <param name="expression">Expression describing the method to call.</param>
@@ -5869,7 +5811,7 @@
         <member name="M:Microsoft.Practices.Unity.Utility.StaticReflection.GetPropertyGetMethodInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
             Pull out a <see cref="T:System.Reflection.MethodInfo"/> object for the get method from an expression of the form
-            x =&gt; x.SomeProperty
+            x =&gt; x.Foo
             </summary>
             <typeparam name="T">The type where the method is defined.</typeparam>
             <typeparam name="TProperty">The type for the property.</typeparam>
@@ -5879,21 +5821,12 @@
         <member name="M:Microsoft.Practices.Unity.Utility.StaticReflection.GetPropertySetMethodInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
             Pull out a <see cref="T:System.Reflection.MethodInfo"/> object for the set method from an expression of the form
-            x =&gt; x.SomeProperty
+            x =&gt; x.Foo
             </summary>
             <typeparam name="T">The type where the method is defined.</typeparam>
             <typeparam name="TProperty">The type for the property.</typeparam>
             <param name="expression">Expression describing the property for which the set method is to be extracted.</param>
             <returns>Corresponding <see cref="T:System.Reflection.MethodInfo"/>.</returns>
-        </member>
-        <member name="M:Microsoft.Practices.Unity.Utility.StaticReflection.GetMemberInfo``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TProperty"></typeparam>
-            <param name="expression"></param>
-            <returns></returns>
         </member>
         <member name="M:Microsoft.Practices.Unity.Utility.StaticReflection.GetConstructorInfo``1(System.Linq.Expressions.Expression{System.Func{``0}})">
             <summary>

@@ -16,32 +16,27 @@ namespace PhotoSorter.Test
         [TestMethod]
         public void TestGivenAPhotoWithValidDateThenCreatesAFolderWithThatDateAndCopiesPhoto()
         {
-            byte[] buffer;
-            using (Stream stream = GetResourceStream(@"PhotoSorter.Test.Resources.photo_with_valid_date.jpg"))
-            {
-                buffer = new byte[stream.Length];
-                stream.Read(buffer, 0, (int)stream.Length);
-            }
-
             Mock<IFile> mockFile = new Mock<IFile>();
-            mockFile.SetupGet(file => file.Data)
-                .Returns(buffer);
+            mockFile.Setup(file => file.GetFileStream())
+                .Returns(GetResourceStream(@"PhotoSorter.Test.Resources.photo_with_valid_date.jpg"));
+            mockFile.SetupGet(file => file.FileName)
+                .Returns("photo_with_valid_date.jpg");
             mockFile.SetupGet(file => file.FullPath)
                 .Returns(@"C:\Test\photo_with_valid_date.jpg");
 
             List<IFile> files = new List<IFile>{mockFile.Object};
 
             Mock<IFileService> mockFileService = new Mock<IFileService>();
-            mockFileService.Setup(service => service.GetFilePathsInFolderRecursively(@"C:\Test\"))
+            mockFileService.Setup(service => service.GetFilePathsInFolderRecursively(@"C:\Test"))
                 .Returns(files);
 
-            mockFileService.Verify(service => service.CopyFile(@"C:\Test\photo_with_valid_date.jpg",
-                @"C:\Test2\2011-03-08\photo_with_valid_date.jpg"));
-
             UnityContainer container = new UnityContainer();
-            container.RegisterInstance(typeof (IFileService), mockFileService);
+            container.RegisterInstance(typeof(IFileService), mockFileService.Object);
             PhotoSorter sorter = container.Resolve<PhotoSorter>();
-            sorter.Sort(@"C:\Test\", @"C:\Test2\");
+            sorter.Sort(@"C:\Test", @"C:\Test2");
+
+            mockFileService.Verify(service => service.CopyFile(@"C:\Test\photo_with_valid_date.jpg", 
+@"C:\Test2\2011-08-05\photo_with_valid_date.jpg"));
         }
 
         private Stream GetResourceStream(string resourcePath)
